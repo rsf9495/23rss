@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>خبرخوان فارسی</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>📰 خبرهای تازه</h1>
+  <div id="feed-container">در حال بارگذاری...</div>
+
+  <script>
+    fetch('fetch.php')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('feed-container').innerHTML = html;
+      })
+      .catch(() => {
+        document.getElementById('feed-container').innerText = 'خطا در بارگذاری اخبار';
+      });
+  </script>
+</body>
+</html>
